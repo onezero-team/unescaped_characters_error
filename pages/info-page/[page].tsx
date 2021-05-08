@@ -15,7 +15,14 @@ function InfoPage({ page }: any) {
       <div className={styles.container}>
         <main className={styles.main}>
           <h1 className={styles.title}>This is page: {page.title}</h1>
-          <p>page text: {page.text}</p>
+          <h2>
+            change the text in <span className={styles.change}>red</span> below
+            in:
+          </h2>
+          <a href="https://github.com/onezero-team/unescaped_characters_error_cms">
+            https://github.com/onezero-team/unescaped_characters_error_cms
+          </a>
+          <p className={styles.change}>{page.text}</p>
         </main>
       </div>
     </>

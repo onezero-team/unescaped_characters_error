@@ -36,7 +36,7 @@ const redirect404 = () => {
 export const getStaticProps: GetStaticProps = async (context: any) => {
   let { page } = context.params;
   const resp = await fetch(
-    "https://raw.githubusercontent.com/onezero-team/unescaped_characters_error/main/cms.json"
+    "https://raw.githubusercontent.com/onezero-team/unescaped_characters_error_cms/main/cms.json"
   );
   const data = await resp.json();
   page = data[page];

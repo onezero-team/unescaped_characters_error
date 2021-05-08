@@ -14,7 +14,8 @@ function InfoPage({ page }: any) {
     <>
       <div className={styles.container}>
         <main className={styles.main}>
-          <h1 className={styles.title}>This is page: {page.data}</h1>
+          <h1 className={styles.title}>This is page: {page.title}</h1>
+          <p>page text: {page.text}</p>
         </main>
       </div>
     </>
@@ -34,8 +35,12 @@ const redirect404 = () => {
 
 export const getStaticProps: GetStaticProps = async (context: any) => {
   let { page } = context.params;
-
-  page = { data: page };
+  const resp = await fetch(
+    "https://raw.githubusercontent.com/onezero-team/unescaped_characters_error/main/cms.json"
+  );
+  const data = await resp.json();
+  console.log(data);
+  page = { data: data[page] };
   return { props: { page }, revalidate: 1 };
 };
 
